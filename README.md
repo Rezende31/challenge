@@ -67,9 +67,3 @@ Flow:
 - `CepClient`: External API integration (Mockoon)
 - `QueryLog`: Entity for audit trail (timestamp, response time, success)
 - `QueryLogRepository`: Data access layer (JPA)
-
-## Presentation (15 min)
-- Solution diagram (layers, flow, persistence)
-- Walk through key code
-- Start containers, run app, call endpoint
-- Show logs saved in Postgres
