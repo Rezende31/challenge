@@ -1,0 +1,29 @@
+services:
+  db:
+    image: postgres:14
+    container_name: challenge-postgres
+    environment:
+      POSTGRES_DB: challenge
+      POSTGRES_USER: challenge
+      POSTGRES_PASSWORD: challenge
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U challenge"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  wiremock:
+    image: wiremock/wiremock:3.7.0
+    container_name: challenge-wiremock
+    command: ["--verbose"]
+    ports:
+      - "8089:8080"
+    volumes:
+      - ./wiremock:/home/wiremock
+
+volumes:
+  pgdata:

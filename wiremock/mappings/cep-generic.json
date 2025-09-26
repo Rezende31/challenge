@@ -1,0 +1,20 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPattern": "/ws/([0-9]{8})/json"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "cep": "{{{ request.path.[1] }}}",
+      "logradouro": "Rua Exemplo",
+      "bairro": "Bairro Exemplo",
+      "localidade": "Cidade Exemplo",
+      "uf": "SP"
+    },
+    "transformers": ["response-template"]
+  }
+}
